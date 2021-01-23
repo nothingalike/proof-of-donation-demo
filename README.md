@@ -1,5 +1,15 @@
 ![Image of Mission Drive Pools](https://avatars.githubusercontent.com/u/77606865?s=200&v=4)
-## How to Submit Proof of Donation with cardano-wallet
+# How to Submit Proof of Donation with cardano-wallet
+
+## Tools used
+Postman: https://www.postman.com/downloads/
+
+You can import the `Cardano Wallet.postman_collection.json` file to get the endpoints I was using 
+
+## Video Demo
+Video: https://youtu.be/vlqnm9oQb5M
+
+## Instructions
 
 ### 1) Download Binaries
 https://github.com/input-output-hk/cardano-wallet/releases
