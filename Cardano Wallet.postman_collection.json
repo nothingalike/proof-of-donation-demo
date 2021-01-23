@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "c0223116-00b3-48cf-9e12-eba80b6a63ab",
+		"name": "Cardano Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Network Information",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8090/v2/network/information",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"network",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get List of Wallets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v2/wallets",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name\",\r\n    \"mnemonic_sentence\": [],\r\n    \"passphrase\": \"passphrase\",\r\n    \"address_pool_gap\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/v2/wallets",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Wallet by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v2/wallets/9757d42ee288adbc1f47e03053894501dadb0322",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets",
+						"9757d42ee288adbc1f47e03053894501dadb0322"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Addresses by Wallet Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v2/wallets/9757d42ee288adbc1f47e03053894501dadb0322/addresses",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets",
+						"9757d42ee288adbc1f47e03053894501dadb0322",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Fee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payments\": [\r\n      {\r\n        \"address\": \"address\",\r\n        \"amount\": {\r\n          \"quantity\": 1000000,\r\n          \"unit\": \"lovelace\"\r\n        }\r\n      }\r\n    ],\r\n    \"metadata\": {\r\n        \"123\": {\r\n            \"map\": [\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PoolId\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"my-awesome-pool-id\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"Reason\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"LIFT Pool Charity Donation Receipt\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"Charity\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"No Kid Hungry\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"FundraiserUrl\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"http://join.nokidhungry.org/goto/liftstakepool\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PoolTicker\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"LIFT\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationDate\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"2021-02-01T12:30:00ST\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationAmount\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"100\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"CharityFundName\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Ending Childhood Hunger in America\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"EpochofDonation\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"245\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationCurrency\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"USD\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationFrequency\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Monthly\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PaymentMethodType\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Paypal\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PaymentMethodTransactionId\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"paypal-transaction-id\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"CharityReferencePaymentID\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"charity-transaction-id\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"time_to_live\": {\r\n      \"quantity\": 500,\r\n      \"unit\": \"second\"\r\n    }\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v2/wallets/9757d42ee288adbc1f47e03053894501dadb0322/payment-fees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets",
+						"9757d42ee288adbc1f47e03053894501dadb0322",
+						"payment-fees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Transaction with Metadata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passphrase\":\"passphrase\",\r\n    \"payments\": [\r\n      {\r\n        \"address\": \"address\",\r\n        \"amount\": {\r\n          \"quantity\": 1000000,\r\n          \"unit\": \"lovelace\"\r\n        }\r\n      }\r\n    ],\r\n    \"metadata\": {\r\n        \"123\": {\r\n            \"map\": [\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PoolId\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"my-awesome-pool-id\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"Reason\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"LIFT Pool Charity Donation Receipt\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"Charity\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"No Kid Hungry\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"FundraiserUrl\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"http://join.nokidhungry.org/goto/liftstakepool\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PoolTicker\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"LIFT\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationDate\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"2021-02-01T12:30:00ST\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationAmount\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"100\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"CharityFundName\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Ending Childhood Hunger in America\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"EpochofDonation\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"245\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationCurrency\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"USD\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"DonationFrequency\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Monthly\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PaymentMethodType\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"Paypal\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"PaymentMethodTransactionId\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"paypal-transaction-id\"\r\n                    }\r\n                },\r\n                {\r\n                    \"k\": {\r\n                        \"string\": \"CharityReferencePaymentID\"\r\n                    },\r\n                    \"v\": {\r\n                        \"string\": \"charity-transaction-id\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    },\r\n    \"time_to_live\": {\r\n      \"quantity\": 500,\r\n      \"unit\": \"second\"\r\n    }\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v2/wallets/9757d42ee288adbc1f47e03053894501dadb0322/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets",
+						"9757d42ee288adbc1f47e03053894501dadb0322",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions by Wallet Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/v2/wallets/9757d42ee288adbc1f47e03053894501dadb0322/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v2",
+						"wallets",
+						"9757d42ee288adbc1f47e03053894501dadb0322",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

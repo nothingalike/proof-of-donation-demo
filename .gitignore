@@ -1,0 +1,4 @@
+bin/*
+configs/*
+db-testnet/*
+wallets-testnet/*
